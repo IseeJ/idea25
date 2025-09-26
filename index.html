@@ -30,6 +30,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      cursor: url('1.PNG'), auto;
     }
 
     #screen {
@@ -53,6 +54,7 @@
       left: 50%;
       transform: translate(-50%, -40%);
       z-index: 1;
+      cursor: url('2.PNG'), auto;
     }
 
     #pet-phrase {
@@ -126,6 +128,23 @@
       document.addEventListener('click', playMusic);
     });
   });
+
+
+  const cursorDefault = 'url("1.png"), auto';
+  const cursorClick = 'url("2.png"), auto';
+
+
+  function changeCursorTemporarily() {
+    document.body.style.cursor = cursorClick;
+    document.getElementById('pet-img').style.cursor = cursorClick;
+
+    setTimeout(() => {
+      document.body.style.cursor = cursorDefault;
+      document.getElementById('pet-img').style.cursor = cursorDefault;
+    }, 200);
+  }
+
+  document.addEventListener('click', changeCursorTemporarily);
 </script>
 
 </html>
