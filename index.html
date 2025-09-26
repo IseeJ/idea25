@@ -75,17 +75,16 @@
       will-change: transform;
     }
 
-     footer {
-        text-align: center;
+    footer {
+      text-align: center;
     }
 
     footer a {
-        font-size: 10px;
-        text-decoration: none;
-        color: #fff;
-        transition: color 0.3s;
+      font-size: 10px;
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
     }
-
   </style>
 </head>
 
@@ -97,19 +96,36 @@
       </div>
       <img id="pet-img" src="idea.gif" alt="Your Pet">
     </div>
-        <footer>
-        <p2><a href="https://iseej.github.io/Card/" target="_blank" style="font-size: 10px; ">&copy; 2025 I-see Warisa Jaidee</a> 
+    <footer>
+      <p2><a href="https://iseej.github.io/Card/" target="_blank" style="font-size: 10px; ">&copy; 2025 I-see Warisa
+          Jaidee</a></p2>
     </footer>
   </div>
 
 
-    <audio id="background-music" loop autoplay>
+  <audio id="background-music" loop autoplay>
     <source src="HBD.mp3" type="audio/mp3">
   </audio>
-  
+
 </body>
 
 
-
 <script src="script.js"></script>
+<script>
+
+  const music = document.getElementById('background-music');
+
+
+  window.addEventListener('load', () => {
+    music.play().catch(() => {
+
+      const playMusic = () => {
+        music.play();
+        document.removeEventListener('click', playMusic);
+      };
+      document.addEventListener('click', playMusic);
+    });
+  });
+</script>
+
 </html>
